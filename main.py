@@ -44,3 +44,10 @@ class Library:
                 print(f"{book.title} by {book.author}")
         else:
             print("Library is empty.")
+
+
+def update_library_csv(b_title, b_author):
+    with open("books.csv", "a", newline="\n") as write_list_of_books:
+        writer = csv.writer(write_list_of_books)
+        writer.writerow([b_title, b_author])
+    write_list_of_books.close()
