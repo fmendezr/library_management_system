@@ -26,3 +26,21 @@ class Book:
             print(f"Success! {book.title} by {book.author} has been returned.")
         else:
             print(f"{book.title} by {book.author} has not been burrowed.")
+
+class Library:
+    def __init__(self):
+        self.library_list = []
+        for book in csv_list:
+            self.library_list.append(Book(book[0], book[1]))
+    
+    def add_book(self, new_book):
+        self.library_list.append(new_book)
+        print(f"{new_book.title} by {new_book.author} has been added to the library successfully.")
+
+    def list_books(self):
+        print("Here is a list of the books available in the library: ")
+        if len(self.library_list) >  0:
+            for book in self.library_list:
+                print(f"{book.title} by {book.author}")
+        else:
+            print("Library is empty.")
